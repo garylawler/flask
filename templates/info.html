@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="col-sm-4 col-sm-offset-4">
+    <div>
+        <img src="http://image.tmdb.org/t/p/w150/{{output.poster_path}}">
+    </div>
+    <div>
+        <h3>{{output.title}}</h3>
+        <p>{{output.tagline}}</p>
+        <p>{{output.overview}}</p>
+        <p>
+            Release Date: {{output.release_date}}
+        </p>
+        <p>
+            Runtime: {{output.runtime}} minutes
+        </p>
+        <p>
+            {% for genre in output.genres %}<span class="label label-success">{{genre.name}}</span> {% endfor %}
+        </p>
+        <p>
+            {% for production_company in output.production_companies %}<span class="label label-success">{{production_company.name}}</span> {% endfor %}
+        </p>
+    </div>
+    <div class="clearfix"></div>
+</div>
+{% endblock %}

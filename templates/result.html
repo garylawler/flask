@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+{% for result in output.results %}
+    <div class="col-sm-3 thumbnail">
+    {% if result.poster_path %}
+        <img src="http://image.tmdb.org/t/p/w300/{{result.poster_path}}" alt="{{result.title}}">
+    {% else %}
+        <img src="http://www.sumoware.com/images/temp/xztfarjepgixlrkm.png" alt="{{result.title}}">
+    {% endif %}
+        <div class="caption">
+            <h3>{{result.title}}</h3>
+            <p>{{result.tagline}}</p>
+            <p>
+                <a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Like</a>
+                <a href="/info/{{result.id}}">(more info)</a>
+            </p>
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}
+
+
+
